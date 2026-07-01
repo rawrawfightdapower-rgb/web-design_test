@@ -73,21 +73,35 @@ nav ul li a.active {
     padding: 60px 0;
 }
 
+/* 1. 全体を並べるコンテナ（Flexbox） */
 .hero-grid {
-    width: 100%;
-    height: 400px;
-    object-fit: cover; /* 画像をアスペクト比を保ちつつ、枠に合わせてクロップして表示します */
-    border-radius: 4px; /* 角を丸くする設定は残します */
-}
-    /*---
-    .hero-gridのもともとの設定↓ 
-    
     display: flex;
     align-items: center;
     gap: 40px;
-    
+    padding: 20px;
+}
+
+/*---.hero-gridの前回の設定
+.hero-grid {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;  画像をアスペクト比を保ちつつ、枠に合わせてクロップして表示します 
+    border-radius: 4px;  角を丸くする設定は残します 
+}
     ---*/
 
+/* 2. テキストと画像の幅を調整（左右50%ずつに分ける） */
+.hero-text, .hero-img {
+    flex: 1; /* 均等な幅にする */
+}
+
+/* 3. 画像のサイズを「コンテナに合わせる」 */
+.hero-img {
+    width: 100%;       /* 親要素(hero-grid)の幅いっぱい */
+    height: 350px;     /* 高さを固定（好みに合わせて調整） */
+    object-fit: cover; /* これで画像が枠内で綺麗に切り抜かれます */
+    border-radius: 8px;/* 角を少し丸くすると今風です */
+}
 
 .hero-text h1 {
     font-size: 48px;
